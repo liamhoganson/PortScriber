@@ -1,0 +1,50 @@
+Value SYS_NAME (\S+)
+Value SYS_LOCATION (.+)
+Value SYS_CONTACT (.+)
+Value SYSTEM_MAC (\S+)
+Value SYSTEM_TYPE (\S+)
+Value SYS_HEALTH_CHECK (\S+)
+Value RECOVERY_MODE (\S+)
+Value SYSTEM_WATCHDOG (\S+)
+Value CURRENT_TIME (.+)
+Value TIMEZONE (.+)
+Value BOOT_TIME (.+)
+Value BOOT_COUNT (\d+)
+Value NEXT_REBOOT (.+)
+Value SYSTEM_UPTIME (.+)
+Value CURRENT_STATE (\S+)
+Value IMAGE_SELECTED (\S+)
+Value IMAGE_BOOTED (\S+)
+Value PRIMARY_VER (.+)
+Value SECONDARY_VER (.+)
+Value CONFIG_SELECTED (\S+)
+Value CONFIG_BOOTED (\S+)
+Value CONFIG_CREATED_BY (.+)
+Value CONFIG_SIZE (\d+ bytes)
+Value CONFIG_SAVED_ON (.+)
+
+Start
+  ^SysName:\s+${SYS_NAME}
+  ^SysLocation:\s+${SYS_LOCATION}
+  ^SysContact:\s+${SYS_CONTACT}
+  ^System MAC:\s+${SYSTEM_MAC}
+  ^System Type:\s+${SYSTEM_TYPE}
+  ^SysHealth check:\s+${SYS_HEALTH_CHECK}
+  ^Recovery Mode:\s+${RECOVERY_MODE}
+  ^System Watchdog:\s+${SYSTEM_WATCHDOG}
+  ^Current Time:\s+${CURRENT_TIME}
+  ^Timezone:\s+${TIMEZONE}
+  ^Boot Time:\s+${BOOT_TIME}
+  ^Boot Count:\s+${BOOT_COUNT}
+  ^Next Reboot:\s+${NEXT_REBOOT}
+  ^System UpTime:\s+${SYSTEM_UPTIME}
+  ^Current State:\s+${CURRENT_STATE}
+  ^Image Selected:\s+${IMAGE_SELECTED}
+  ^Image Booted:\s+${IMAGE_BOOTED}
+  ^Primary ver:\s+${PRIMARY_VER}
+  ^Secondary ver:\s+${SECONDARY_VER}
+  ^Config Selected:\s+${CONFIG_SELECTED}
+  ^Config Booted:\s+${CONFIG_BOOTED}
+  ^${CONFIG_SELECTED}\s+Created by ${CONFIG_CREATED_BY}
+  ^\s+${CONFIG_SIZE}\s+saved on ${CONFIG_SAVED_ON}
+

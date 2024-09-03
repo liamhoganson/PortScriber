@@ -1,0 +1,16 @@
+Value TRUNK_ALLOWED_UNKNOWN_VLAN (\S+)
+Value TRUNKING_UNKNOWN_VLANS_MASK (\S*)
+Value VID (\d+)
+Value VLAN_NAME ([\S\s]+?)
+Value UNTAGGED_PORTS ([\S\s]+?)
+Value TAGGED_PORTS ([\S\s]+?)
+Value TYPE (\S+)
+
+Start
+  ^Trunk\s+allowed\s+unknown\s+vlan:\s+${TRUNK_ALLOWED_UNKNOWN_VLAN} -> Continue
+  ^Trunking\s+Unknown\s+VLANs\s+Mask:\s*${TRUNKING_UNKNOWN_VLANS_MASK} -> Continue
+  ^\s*VID\s*\|\s*VLAN\s+Name\s*\|\s*Untagged\s+Ports\s*\|\s*Tagged\s+Ports\s*\|\s*Type\s* -> Records
+
+Records
+  ^\s*${VID}\s*\|\s*${VLAN_NAME}\s*\|\s*${UNTAGGED_PORTS}\s*\|\s*${TAGGED_PORTS}\s*\|\s*${TYPE}\s*$$ -> Record
+

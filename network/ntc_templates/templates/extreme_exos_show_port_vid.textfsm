@@ -1,0 +1,14 @@
+Value PORT (\S+)
+Value UNTAGGED_VID (\d+)
+Value TAGGED_VIDS ((\d+,? ?)+)
+
+Start
+  ^\s*Port\s+/Tagged\s+VID\(s\)
+  ^\s*--------\s*--------\s*------------------------------------------------------------
+  ^\s*${PORT}\s+Untagged\s+${UNTAGGED_VID}\s* -> Record
+  ^\s*${TAGGED_VIDS}\s*$$ -> TaggedVids
+  ^\s*Untagged\s+${UNTAGGED_VID}\s*$$ -> Record
+  ^\s*Tagged\s+${TAGGED_VIDS}\s*$$ -> Record
+
+TaggedVids
+  ^\s*${TAGGED_VIDS}\s*$$ -> Record

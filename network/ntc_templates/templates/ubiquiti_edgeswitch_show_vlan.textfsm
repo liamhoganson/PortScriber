@@ -1,0 +1,11 @@
+Value INTERFACE (\S+)
+Value CURRENT (\S+)
+Value CONFIGURED (\S+)
+Value TAGGING (\S+)
+
+Start
+  ^\s*Interface\s+Current\s+Configured\s+Tagging -> Records
+  ^\s*----------\s+--------\s+-----------\s+-------- -> Continue
+
+Records
+  ^\s*${INTERFACE}\s+${CURRENT}\s+${CONFIGURED}\s+${TAGGING}\s*$$ -> Record

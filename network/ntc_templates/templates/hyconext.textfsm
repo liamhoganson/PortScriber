@@ -1,0 +1,10 @@
+Value MAC_ADDRESS ([0-9a-fA-F:]{2}:[0-9a-fA-F:]{2}:[0-9a-fA-F:]{2}:[0-9a-fA-F:]{2}:[0-9a-fA-F:]{2}:[0-9a-fA-F:]{2})
+Value INTERFACE (\S+)
+
+Start
+  ^\s*MAC\s+Address\s+Vlan/Vsi/BD\s+Interface\s+Oper-Type\s+Type\s*$$ -> MAC_ADDRESS_TABLE
+
+MAC_ADDRESS_TABLE
+  ^\s*${MAC_ADDRESS}\s+\S+\s+${INTERFACE}\s+\S+\s+\S+\s*$$ -> Record
+  ^\s*$$
+

@@ -1,0 +1,10 @@
+Value TIME (\w+\s+\d+\s+\d+:\d+:\d+\.\d+\s+\w+)
+Value INTERFACE (\S+\s\S+|\S+)
+Value ENCAPSULATION_TYPE (\S+)
+Value VLAN (\d+)
+
+Start
+  ^${TIME} -> Record Start
+  ^interface\s+${INTERFACE} -> Continue
+  ^\s+encapsulation\s+${ENCAPSULATION_TYPE}\s+${VLAN} -> Record
+

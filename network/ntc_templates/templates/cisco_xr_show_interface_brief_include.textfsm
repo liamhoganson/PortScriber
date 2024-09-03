@@ -1,0 +1,12 @@
+Value TIME (\w+\s+\d+\s+\d+:\d+:\d+\.\d+\s+\w+)
+Value INTERFACE (\S+)
+Value STATUS (\S+)
+Value PROTOCOL (\S+)
+Value ENCAPSULATION (\S+)
+Value MTU (\d+)
+Value SPEED (\d+)
+
+Start
+  ^${TIME} -> Record
+  ^\s*${INTERFACE}\s+${STATUS}\s+${PROTOCOL}\s+${ENCAPSULATION}\s+${MTU}\s+${SPEED} -> Record
+

@@ -1,0 +1,28 @@
+Value VLAN_ID (\d+)
+Value VLAN_ALIAS (.*)
+Value IPV4_COUNT (\d+)
+Value IPV6_COUNT (\d+)
+Value UNKNOWN_MULTICAST (\S+)
+Value ADMIN_STATUS (\S+)
+Value PHYSICAL_STATUS (\S+)
+Value VLAN_STATUS (\S+)
+Value INTERFACE (\S+)
+Value TAGGED (\S+)
+
+Start
+  ^VLAN\sID:${VLAN_ID}
+  ^\s*Vlan\salias:${VLAN_ALIAS}
+  ^\s*The\stotal\snumber\sof\sipv4\saddress\sis:${IPV4_COUNT},ipv6\saddress\sis:${IPV6_COUNT}
+  ^\s*Unknown-multicast:${UNKNOWN_MULTICAST}
+  ^\s*Admin\sstatus:${ADMIN_STATUS}
+  ^\s*Physical\sstatus:${PHYSICAL_STATUS}
+  ^\s*Vlan-status:${VLAN_STATUS}
+  ^\s*Member\(s\):
+  ^\s*Interface\s+Tagged -> Members
+
+Members
+  ^\s*${INTERFACE}\s+${TAGGED} -> Record
+  ^\s*$$ -> End
+
+EOF
+

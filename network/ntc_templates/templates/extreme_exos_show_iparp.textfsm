@@ -1,0 +1,16 @@
+Value VR (\S+)
+Value Destination (\S+)
+Value Mac (\S+)
+Value Age (\d+)
+Value Static (YES|NO)
+Value VLAN (\S+)
+Value VID (\d+)
+Value Port (\d+)
+
+Start
+  ^VR\s+Destination\s+Mac\s+Age\s+Static\s+VLAN\s+VID\s+Port.* -> ARP_Table
+
+ARP_Table
+  ^${VR}\s+${Destination}\s+${Mac}\s+${Age}\s+${Static}\s+${VLAN}\s+${VID}\s+${Port} -> Record
+
+

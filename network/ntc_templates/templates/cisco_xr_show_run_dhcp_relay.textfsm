@@ -1,0 +1,16 @@
+Value Required DATE (\w+\s+\w+\s+\d+\s+\d+:\d+:\d+\.\d+\s+\w+)
+Value INTERFACE (\S+)
+Value PROFILE (\S+)
+
+Start
+  ^${DATE} -> CheckLine
+
+CheckLine
+  ^dhcp\s+ipv4\s+interface\s+${INTERFACE}\s+relay\s+profile\s+${PROFILE} -> Record End
+  ^% No such configuration item\(s\) -> NoConfig
+
+NoConfig
+  ^% No such configuration item\(s\) -> Record
+
+EOF
+

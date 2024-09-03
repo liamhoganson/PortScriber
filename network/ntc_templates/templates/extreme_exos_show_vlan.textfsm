@@ -1,0 +1,49 @@
+Value VLAN_ID (\d+)
+Value VLAN_NAME (\S+)
+Value ADMIN_STATE (\S+)
+Value TAGGING (.+)
+Value DESCRIPTION (.+)
+Value VIRTUAL_ROUTER (.+)
+Value IPV4_FORWARDING (\S+)
+Value IPV4_MC_FORWARDING (\S+)
+Value PRIMARY_IP (.+)
+Value IPV6_FORWARDING (\S+)
+Value IPV6_MC_FORWARDING (\S+)
+Value IPV6 (.+)
+Value STPD (.+)
+Value PROTOCOL (.+)
+Value LOOPBACK (\S+)
+Value NETLOGIN (\S+)
+Value OPENFLOW (\S+)
+Value TRILL (\S+)
+Value QOS_PROFILE (.+)
+Value EGRESS_RATE_LIMIT_PORTS (.+)
+Value FLOOD_RATE_LIMIT_QOS_PROFILE (.+)
+Value PORTS_COUNT (\d+)
+Value PORT_DETAILS (.+)
+
+Start
+  ^VLAN\s+${VLAN_ID}:\s+show vlan ${VLAN_NAME}
+  ^VLAN Interface with name ${VLAN_NAME} created by user
+  ^\s+Admin State:\s+\s*${ADMIN_STATE}\s+Tagging:\s*${TAGGING}
+  ^\s+Description:\s+\s*${DESCRIPTION}
+  ^\s+Virtual router:\s+\s*${VIRTUAL_ROUTER}
+  ^\s+IPv4 Forwarding:\s+\s*${IPV4_FORWARDING}
+  ^\s+IPv4 MC Forwarding:\s+\s*${IPV4_MC_FORWARDING}
+  ^\s+Primary IP:\s+\s*${PRIMARY_IP}
+  ^\s+IPv6 Forwarding:\s+\s*${IPV6_FORWARDING}
+  ^\s+IPv6 MC Forwarding:\s+\s*${IPV6_MC_FORWARDING}
+  ^\s+IPv6:\s+\s*${IPV6}
+  ^\s+STPD:\s+\s*${STPD}
+  ^\s+Protocol:\s+\s*${PROTOCOL}
+  ^\s+Loopback:\s+\s*${LOOPBACK}
+  ^\s+NetLogin:\s+\s*${NETLOGIN}
+  ^\s+OpenFlow:\s+\s*${OPENFLOW}
+  ^\s+TRILL:\s+\s*${TRILL}
+  ^\s+QosProfile:\s+\s*${QOS_PROFILE}
+  ^\s+Egress Rate Limit Designated Port:\s+\s*${EGRESS_RATE_LIMIT_PORTS}
+  ^\s+Flood Rate Limit QosProfile:\s+\s*${FLOOD_RATE_LIMIT_QOS_PROFILE}
+  ^\s+Ports:\s+\s*${PORTS_COUNT}\.\s+\(Number of active ports=\d+\)
+  ^\s+Tag:\s+\s*${PORT_DETAILS}
+  ^\s+Flags:.* -> Record
+
